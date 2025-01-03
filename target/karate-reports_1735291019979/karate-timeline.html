@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"src\/test\/java\/features\/swagger[1:13]","start":1735290624776,"end":1735290626815,"title":"src\/test\/java\/features\/swagger[1:13] 14:40:24.776-14:40:26.815 To verify valid get Author"},{"id":2,"group":1,"content":"src\/test\/java\/features\/swagger[2:30]","start":1735290626824,"end":1735290627434,"title":"src\/test\/java\/features\/swagger[2:30] 14:40:26.824-14:40:27.434 To verify get Author by valid Id"},{"id":3,"group":1,"content":"src\/test\/java\/features\/swagger[3:47]","start":1735290627444,"end":1735290628006,"title":"src\/test\/java\/features\/swagger[3:47] 14:40:27.444-14:40:28.006 To verify get Author by invalid Id"},{"id":4,"group":1,"content":"src\/test\/java\/features\/swagger[4:53]","start":1735290628014,"end":1735290628552,"title":"src\/test\/java\/features\/swagger[4:53] 14:40:28.014-14:40:28.552 To verify get Authors by valid book Id","className":"failed"},{"id":5,"group":1,"content":"src\/test\/java\/features\/swagger[5:64]","start":1735290628559,"end":1735290629287,"title":"src\/test\/java\/features\/swagger[5:64] 14:40:28.559-14:40:29.287 To verify post on Authors of swagger"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>

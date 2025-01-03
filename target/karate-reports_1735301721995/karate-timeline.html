@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"src\/test\/java\/features\/swagger[1:31]","start":1735301592119,"end":1735301594237,"title":"src\/test\/java\/features\/swagger[1:31] 17:43:12.119-17:43:14.237 To verify valid get Author"},{"id":2,"group":1,"content":"src\/test\/java\/features\/swagger[2:48]","start":1735301594251,"end":1735301594866,"title":"src\/test\/java\/features\/swagger[2:48] 17:43:14.251-17:43:14.866 To verify get Author by valid Id"},{"id":3,"group":1,"content":"src\/test\/java\/features\/swagger[3:62]","start":1735301594874,"end":1735301595460,"title":"src\/test\/java\/features\/swagger[3:62] 17:43:14.874-17:43:15.460 To verify get Author by invalid Id"},{"id":4,"group":1,"content":"src\/test\/java\/features\/swagger[4:68]","start":1735301595477,"end":1735301598557,"title":"src\/test\/java\/features\/swagger[4:68] 17:43:15.477-17:43:18.557 To verify get Authors by valid book Id"},{"id":5,"group":1,"content":"src\/test\/java\/features\/swagger[5:76]","start":1735301598573,"end":1735301599292,"title":"src\/test\/java\/features\/swagger[5:76] 17:43:18.573-17:43:19.292 To verify post on Authors of swagger"},{"id":6,"group":1,"content":"src\/test\/java\/features\/swagger[6:92]","start":1735301599297,"end":1735301599890,"title":"src\/test\/java\/features\/swagger[6:92] 17:43:19.297-17:43:19.890 To verify post on Authors when Id is 0"},{"id":7,"group":1,"content":"src\/test\/java\/features\/swagger[7:107]","start":1735301599897,"end":1735301600487,"title":"src\/test\/java\/features\/swagger[7:107] 17:43:19.897-17:43:20.487 To verify put on Authors by valid Id"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
